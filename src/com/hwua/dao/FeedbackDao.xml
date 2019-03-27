@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwua.dao.FeedbackDao">
+    <select id="select" resultType="feedback">
+        select * from sy_feedback
+    </select>
+    <insert id="insert" parameterType="feedback">
+        insert into sy_feedback value (null,#{f_uid},#{f_proposal})
+    </insert>
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwua.dao.CarDao">
+    <insert id="insertCar" parameterType="car">
+        insert into sy_car value (null,#{car_userid},#{car_goodid},#{car_count},#{good_id},
+        #{good_name},#{good_price},#{good_img},#{good_detail},#{good_type},#{good_type2},#{good_kucun})
+    </insert>
+    <select id="selectByuserid" resultType="car" parameterType="int">
+        select * from sy_car where car_userid = #{car_userid}
+    </select>
+
+    <select id="selectByGoodName" resultType="car" parameterType="string">
+        select * from sy_car where good_name = #{good_name}
+    </select>
+    <delete id="deteleCar_carid" parameterType="int">
+        delete from sy_car where car_carid = #{car_carid}
+    </delete>
+
+    <!--根据用户ID更改选购数量-->
+    <update id="updateCaridCount">
+        update sy_car set car_count = #{arg1} where car_carid = #{arg0}
+    </update>
+
+    <update id="updateGoodNameCount">
+        update sy_car set car_count = car_count+#{arg1} where good_name = #{arg0}
+    </update>
+</mapper>

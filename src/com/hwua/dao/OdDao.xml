@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwua.dao.OdDao">
+    <insert id="insert" parameterType="od">
+        insert into sy_od value (null,#{od_userid},#{od_ordersid},#{od_goodid},#{od_price},#{od_count})
+    </insert>
+    <select id="selectUser_id" resultType="od" parameterType="od">
+        select * from sy_od where od_userid = #{od_userid}
+    </select>
+    <delete id="delete" parameterType="int">
+        delete from sy_od where od_ordersid = #{od_ordersid}
+    </delete>
+</mapper>

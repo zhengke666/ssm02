@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwua.dao.GoodDao">
+    <select id="selectAllGoodsForPage" resultType="good">
+        select * from sy_good
+    </select>
+    <!--111-->
+    <select id="selectByNameGood" resultType="good" parameterType="string">
+        select * from sy_good where good_name = #{good_name}
+    </select>
+
+    <select id="selectByGood_id" resultType="good" parameterType="int">
+        select * from sy_good where good_id = #{good_id}
+    </select>
+
+    <update id="update">
+        update sy_good set good_kucun = (good_kucun-#{arg0}) where good_id = #{arg1}
+    </update>
+</mapper>

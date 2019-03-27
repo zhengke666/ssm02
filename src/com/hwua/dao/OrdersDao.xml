@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwua.dao.OrdersDao">
+    <insert id="insert" parameterType="orders">
+        insert into sy_orders value (null,#{order_userid},#{order_number},now(),
+        #{order_atate},#{order_total},#{order_asid})
+        <selectKey resultType="int" keyProperty="order_id" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+    </insert>
+    <select id="selectUser_id" resultType="orders" parameterType="orders">
+        select * from sy_orders where order_userid = #{order_userid}
+    </select>
+    <update id="update">
+        update sy_orders set order_atate = #{arg1} where order_id = #{arg0}
+    </update>
+    <delete id="delete" parameterType="int">
+        delete from sy_orders where order_id = #{order_id}
+    </delete>
+</mapper>

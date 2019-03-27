@@ -1,0 +1,27 @@
+SSM整合的步骤：
+
+1.创建一个Web工程
+2.导入相关jar包，并配置到项目工程中 (-2)
+    1.mybatis核心jar 1
+    2.mybatis相关jar 12
+    3.单元测试jar 1
+    4.mysql驱动jar + druid数据库连接池jar 2
+    5.spring核心jar 20
+    6.aop相关 3
+    7.日志相关 2
+    8.spring和mybatis整合jar 1
+3.创建Tomcat服务器并把响应的jar配置到项目工程中
+4.为项目工程设置Spring特性
+5.创建需要的包
+6.在src下创建需要的配置文件
+    spring-config.xml
+    springmvc-config.xml
+    mybatis-config.xml
+    log4j.properties
+    JDBC.properties
+
+7.在web.xml中配置需要的内容
+    1.开启监听器
+    2.加载spring核心配置文件
+    3.加载springMVC核心配置文件
+    4.设置全局字符编码格式

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hwua.dao.UserDao">
+    <select id="selectUserByUsername" resultType="user" parameterType="string">
+        select * from sy_user where user_username=#{user_username}
+    </select>
+    <insert id="insertOneUser" parameterType="user">
+        insert into sy_user value (null,#{user_username},#{user_password},#{user_phone})
+    </insert>
+</mapper>
