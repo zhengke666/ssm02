@@ -7,6 +7,8 @@ public class Address {
     private String as_phone;
 
     public Address() {
+
+
     }
 
     public Address(Integer as_id, Integer as_userid, String as_details, String as_phone) {
